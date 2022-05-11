@@ -14,13 +14,20 @@ private:
 
 public:
     Animal();                                     // Default Constructor
+                                                  // Instantiates an animal with no name, no food, not fed, and ID 0
     Animal(string n, string f, bool isf, int id); /* Constructs an animal with the given name,
                                                    * food, fed status, and cage ID */
 
     void getName(); // Returns the name of the animal
     void setName(); // Changes the name of the animal
 
-    ~Animal();
+    void getFood(); // Returns the animal's preferred food
+    void setFood(); // Changes the animal's preferred food
+
+    void isFed(); // Returns true or false depending on whether the animal is fed
+    void feed();  // Feed the animal, turning false into true
+
+    ~Animal(); // Default destructor
 };
 
 #endif // _ANIMAL_H
