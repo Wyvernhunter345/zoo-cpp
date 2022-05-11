@@ -4,12 +4,14 @@
 
 using namespace std;
 
+// Base class for all animals in the zoo.
+
 class Animal
 {
 private:
     string name; // Name of the animal
     string food; // Preferred food of the animal
-    bool isFed;  // Determines whether the animal is fed - 1 for yes, 0 for no
+    bool fed;    // Determines whether the animal is fed - 1 for yes, 0 for no
     int ID;      //  Cage ID of the animal
 
 public:
@@ -18,13 +20,13 @@ public:
     Animal(string n, string f, bool isf, int id); /* Constructs an animal with the given name,
                                                    * food, fed status, and cage ID */
 
-    void getName(); // Returns the name of the animal
-    void setName(); // Changes the name of the animal
+    string getName();       // Returns the name of the animal
+    void setName(string n); // Changes the name of the animal
 
-    void getFood(); // Returns the animal's preferred food
-    void setFood(); // Changes the animal's preferred food
+    string getFood();       // Returns the animal's preferred food
+    void setFood(string f); // Changes the animal's preferred food
 
-    void isFed(); // Returns true or false depending on whether the animal is fed
+    bool isFed(); // Returns true or false depending on whether the animal is fed
     void feed();  // Feed the animal, turning false into true
 
     ~Animal(); // Default destructor
