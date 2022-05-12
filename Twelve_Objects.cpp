@@ -10,7 +10,7 @@ int main(){
   // Creating objects - for separate area
   Tiger Tiger1 = Tiger(Billy,1); // constructor has name then cage number
   Tiger Tiger2 = Tiger(Harris,2);
-  Lion Lion1 = Lion(Mohammed); // constructor can also just have name (polymorphism) if not assigned to cage
+  Lion Lion1 = Lion(Mohammed); // constructor can also just have name if not assigned to cage
   Lion Lion2 = Lion(Joe,8);
   Zebra Zebra1 = Zebra(Maria,3);
   Zebra Zebra2 = Zebra(Nancy);
