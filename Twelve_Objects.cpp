@@ -6,7 +6,7 @@ int main(){
   bool used_cage[10] = {1,1,1,1,0,0,1,1,1,1}; // 1 indicates cage full, 0 indicates empty
   int in_zoo[12] = {1,0,1,1,0,1,1,1,0,0,1,1} // what animals are in the zoo, 1 indicates in, 0 indicates not
   // order of lion,lion,tiger,tiger,zebra,zebra,horse,horse,cow,cow,sheep,sheep
-
+//
   // Creating objects - for separate area
   Tiger Tiger1 = Tiger(Billy,1); // constructor has name then cage number
   Tiger Tiger2 = Tiger(Harris,2);
