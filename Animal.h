@@ -8,11 +8,11 @@ using namespace std;
 
 class Animal
 {
-private:
+protected:
     string name; // Name of the animal
     string food; // Preferred food of the animal
     bool fed;    // Determines whether the animal is fed - 1 for yes, 0 for no
-    int ID;      //  Cage ID of the animal
+    int cage;    //  Cage ID of the animal
 
 public:
     Animal();                                     // Default Constructor
@@ -26,8 +26,8 @@ public:
     string getFood();       // Returns the animal's preferred food
     void setFood(string f); // Changes the animal's preferred food
 
-    bool isFed(); // Returns true or false depending on whether the animal is fed
-    void feed();  // Feed the animal, turning false into true
+    bool isFed();        // Returns true or false depending on whether the animal is fed
+    virtual void feed(); // Feed the animal, turning false into true
 
     ~Animal(); // Default destructor
 };
