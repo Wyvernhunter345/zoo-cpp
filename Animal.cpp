@@ -45,6 +45,14 @@ void Animal::feedSilently()
 {
     fed = true;
 }
+/* void Animal::feed()
+{
+    cout << "Animal has been fed";
+} */
+void Animal::unfeed()
+{
+    fed = false;
+}
 
 Animal::~Animal() // Default destructor
 {

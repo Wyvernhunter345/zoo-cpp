@@ -59,7 +59,7 @@ int main()
     {
       cout << "COMMAND LIST" << '\n'
            << "------------" << '\n'
-           << "A: Add Animal\nR: Remove Animal\nF: Feed Animal\nV: View Animals\nH: View Hungry Animals\nC: Quit the application\n\n";
+           << "A: Add Animal\nR: Remove Animal\nF: Feed Animal\nV: View Animals\nH: View Hungry Animals\nC: Quit the application\n(Enter): Skip to next day\n\n";
     }
     else if (action == "C" || action == "c")
     {
