@@ -24,6 +24,4 @@ Horse::Horse(string n, int id)
 
 Horse::~Horse() // Default Destructor
 {
-    // DESTROY THE Horse HAHAHAHA
-    // not much else to say here...
 }

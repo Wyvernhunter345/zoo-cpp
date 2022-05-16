@@ -11,6 +11,8 @@ public:
     Lion();                 // Default Constructor
     Lion(string n);         // ID Defaults to 0
     Lion(string n, int id); // Instantiate Lion with given name and ID
+
+    ~Lion(); // Default Constructor
 };
 
 #endif // _LION_H

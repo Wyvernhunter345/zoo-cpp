@@ -7,7 +7,7 @@
 #include "Tiger.h"
 #include "Zebra.h"
 #include "Zoo.h"
-#include "Lion.h"
+#include "Lion2.h"
 using namespace std;
 
 int main()
@@ -29,7 +29,6 @@ int main()
   Cow Cow2 = Cow("Maurice");
   Horse Horse1 = Horse("Billy", 10);
   Horse Horse2 = Horse("Nicole", 9);
-
   // The user has pressed 'A' to add an animal
 
   // Find the position

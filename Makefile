@@ -3,8 +3,8 @@
 #
 
 # Build all necessary files once preparation is complete
-all: build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o
-	g++ -o build/main.out build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o
+all: build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o build/Lion.o
+	g++ -o build/main.out build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o build/Lion.o
 
 # Compile machine code for main.cpp if necessary
 build/main.o: main.cpp

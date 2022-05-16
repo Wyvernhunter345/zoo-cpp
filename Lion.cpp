@@ -21,3 +21,7 @@ Lion::Lion(string n, int id)
     name = n;
     cage = id;
 }
+
+Lion::~Lion() // Default Destructor
+{
+}
