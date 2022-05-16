@@ -3,8 +3,8 @@
 #
 
 # Build all necessary files once preparation is complete
-all: build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o
-	clang++ -o build/main.out build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o
+all: build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o build/Lion.o build/functions.o
+	g++ -o build/main.out build/Animal.o build/Zoo.o build/main.o build/Zebra.o build/Cow.o build/Horse.o build/Tiger.o build/Sheep.o build/Lion.o build/functions.o
 
 # Compile machine code for main.cpp if necessary
 build/main.o: main.cpp
@@ -18,6 +18,7 @@ build/Animal.o: Animal.cpp
 build/Zoo.o: Zoo.cpp
 	g++ -c -o build/Zoo.o Zoo.cpp
 
+# You get the idea. All the same.
 build/Cow.o: Cow.cpp
 	g++ -c -o build/Cow.o Cow.cpp
 
@@ -35,3 +36,6 @@ build/Sheep.o: Sheep.cpp
 
 build/Tiger.o: Tiger.cpp
 	g++ -c -o build/Tiger.o Tiger.cpp
+
+build/functions.o: functions.cpp
+	g++ -c -o build/functions.o functions.cpp

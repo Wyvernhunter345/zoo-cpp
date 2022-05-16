@@ -20,14 +20,18 @@ public:
     Animal(string n, string f, bool isf, int id); /* Constructs an animal with the given name,
                                                    * food, fed status, and cage ID */
 
+    int getCage();       // Returns the cage ID of the animal
+    void setCage(int c); // Move/Set the cage of the animal
+
     string getName();       // Returns the name of the animal
     void setName(string n); // Changes the name of the animal
 
     string getFood();       // Returns the animal's preferred food
     void setFood(string f); // Changes the animal's preferred food
 
-    bool isFed();        // Returns true or false depending on whether the animal is fed
-    virtual void feed(); // Feed the animal, turning false into true
+    bool isFed(); // Returns true or false depending on whether the animal is fed
+    // virtual void feed(); // Feed the animal with a text output, turning false into true
+    void feedSilently(); // Feed the animal without returning any text. Used for setup purposes
 
     ~Animal(); // Default destructor
 };
