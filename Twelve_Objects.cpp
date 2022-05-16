@@ -29,7 +29,7 @@ int main(){
       cage_number = i+1;
       break;
     }
-  }
+  
   
   // if all enclosures full
   if (cage_number > 10 or cage_number < 1){
