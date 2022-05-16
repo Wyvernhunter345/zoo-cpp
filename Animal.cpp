@@ -12,6 +12,10 @@ Animal::Animal() : name(""), food(""), cage(0), fed(false) {} // Default constru
 
 Animal::Animal(string n, string f, bool isf, int id) : name(n), food(f), cage(id), fed(isf) {}
 
+void Animal::setCage(int c)
+{
+    cage = c;
+}
 string Animal::getName()
 {
     return name;
@@ -37,7 +41,7 @@ bool Animal::isFed()
     return fed;
 }
 
-void Animal::feed()
+void Animal::feedSilently()
 {
     fed = true;
 }
