@@ -6,20 +6,20 @@ using namespace std;
 
 Sheep::Sheep()
 {
-    Sheep::name = "";
-    Sheep::cage = 0;
+    name = "";
+    cage = 0;
 }
 
 Sheep::Sheep(string n)
 {
-    Sheep::name = n;
-    Sheep::cage = 0;
+    name = n;
+    cage = 0;
 }
 
 Sheep::Sheep(string n, int id)
 {
-    Sheep::name = n;
-    Sheep::cage = id;
+    name = n;
+    cage = id;
 }
 
 Sheep::~Sheep() // Default Destructor

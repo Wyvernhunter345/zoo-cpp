@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Horse : public Animal
+class Horse : virtual public Animal
 {
 public:
     Horse();                 // Default Constructor

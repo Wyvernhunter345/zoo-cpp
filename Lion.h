@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Lion : public Animal
+class Lion : virtual public Animal
 {
 public:
     Lion();                 // Default Constructor

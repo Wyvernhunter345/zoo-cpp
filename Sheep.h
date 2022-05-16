@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Sheep : public Animal
+class Sheep : virtual public Animal
 {
 public:
     Sheep();                 // Instantiate Sheep with no name and ID 0
