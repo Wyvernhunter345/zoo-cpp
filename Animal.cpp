@@ -8,9 +8,9 @@ using namespace std;
  * Implementation of Animal.h
  */
 
-Animal::Animal() : name(""), food(""), ID(0), fed(false) {} // Default constructor
+Animal::Animal() : name(""), food(""), cage(0), fed(false) {} // Default constructor
 
-Animal::Animal(string n, string f, bool isf, int id) : name(n), food(f), ID(id), fed(isf) {}
+Animal::Animal(string n, string f, bool isf, int id) : name(n), food(f), cage(id), fed(isf) {}
 
 string Animal::getName()
 {
