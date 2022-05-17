@@ -35,7 +35,9 @@ public:
     void feedSilently(); // Feed the animal without returning any text. Used for setup purposes
     void unfeed();       // Sets 'fed' to false
 
-    void addAnimal();
+    void addAnimal();    // Add an animal to the zoo
+    void removeAnimal(); // Remove an animal from the zoo
+
     ~Animal(); // Default destructor
 };
 
