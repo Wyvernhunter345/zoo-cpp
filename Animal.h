@@ -35,6 +35,7 @@ public:
     void feedSilently(); // Feed the animal without returning any text. Used for setup purposes
     void unfeed();       // Sets 'fed' to false
 
+    void addAnimal();
     ~Animal(); // Default destructor
 };
 
