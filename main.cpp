@@ -10,10 +10,8 @@
 #include "Lion.h"
 using namespace std;
 
-extern void addAnimal();
-
-bool used_cage[10] = {1, 1, 1, 1, 0, 0, 1, 1, 1, 1};   // 1 indicates cage full, 0 indicates empty
-int in_zoo[12] = {1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1}; // what animals are in the zoo, 1 indicates in, 0 indicates not
+bool used_cage[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};   // 1 indicates cage full, 0 indicates empty
+int in_zoo[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // what animals are in the zoo, 1 indicates in, 0 indicates not
                                                        // order of lion,lion,tiger,tiger,zebra,zebra,horse,horse,cow,cow,sheep,sheep
 
 bool isRunning = true; /* Determines whether the program is currently running.
@@ -21,7 +19,9 @@ bool isRunning = true; /* Determines whether the program is currently running.
 int days = 0;          // Days passed in the virtual zoo
 
 // Creating objects - for separate area
-Tiger Tiger1 = Tiger("Billy", 1); // constructor has name then cage number
+Animal animalManager;
+
+/* Tiger Tiger1 = Tiger("Billy", 1); // constructor has name then cage number
 Tiger Tiger2 = Tiger("Harris", 2);
 Lion Lion1 = Lion("Mohammed"); // constructor can also just have name if not assigned to cage
 Lion Lion2 = Lion("Joe", 8);
@@ -32,7 +32,22 @@ Sheep Sheep2 = Sheep("Paul", 4);
 Cow Cow1 = Cow("Lambert", 7);
 Cow Cow2 = Cow("Maurice");
 Horse Horse1 = Horse("Billy", 10);
-Horse Horse2 = Horse("Nicole", 9);
+Horse Horse2 = Horse("Nicole", 9); */
+
+// Allocate memory of all objects to the stack
+// Create empty constructors as other values can be assigned later
+Tiger *Tiger1 = new Tiger();
+Tiger *Tiger2 = new Tiger();
+Lion *Lion1 = new Lion();
+Lion *Lion2 = new Lion();
+Zebra *Zebra1 = new Zebra();
+Zebra *Zebra2 = new Zebra();
+Sheep *Sheep1 = new Sheep();
+Sheep *Sheep2 = new Sheep();
+Cow *Cow1 = new Cow();
+Cow *Cow2 = new Cow();
+Horse *Horse1 = new Horse();
+Horse *Horse2 = new Horse();
 
 int main()
 {
@@ -68,7 +83,20 @@ int main()
     }
     else if (action == "A" || action == "a")
     {
-      addAnimal();
+      animalManager.addAnimal();
+    }
+    else if (action == "R" || action == "r")
+    {
+      animalManager.removeAnimal();
+    }
+    else if (action == "V" || action == "v")
+    {
+      animalManager.viewAnimals();
+    }
+    else
+    {
+      cout << "Not a valid command!"
+           << "\n\n";
     }
   }
   return 0;
