@@ -68,10 +68,7 @@ void Animal::feedSilently()
 {
     fed = true;
 }
-/* void Animal::feed()
-{
-    cout << "Animal has been fed";
-} */
+
 void Animal::unfeed()
 {
     fed = false;
@@ -560,11 +557,11 @@ void Animal::viewAnimals()
 
     if (Cow1->name == "")
     {
-        cout << "Cage 8: (empty)"
+        cout << "Cage 9: (empty)"
              << "\n\n";
     }
     else
-        cout << "Cage 8:" << '\n'
+        cout << "Cage 9:" << '\n'
              << "-------" << '\n'
              << "Name: " << Cow1->name << '\n'
              << "Species: Cow"
@@ -572,11 +569,11 @@ void Animal::viewAnimals()
 
     if (Cow2->name == "")
     {
-        cout << "Cage 9: (empty)"
+        cout << "Cage 10: (empty)"
              << "\n\n";
     }
     else
-        cout << "Cage 9:" << '\n'
+        cout << "Cage 10:" << '\n'
              << "-------" << '\n'
              << "Name: " << Cow2->name << '\n'
              << "Species: Cow"
@@ -584,11 +581,11 @@ void Animal::viewAnimals()
 
     if (Sheep1->name == "")
     {
-        cout << "Cage 9: (empty)"
+        cout << "Cage 11: (empty)"
              << "\n\n";
     }
     else
-        cout << "Cage 9:" << '\n'
+        cout << "Cage 11" << '\n'
              << "-------" << '\n'
              << "Name: " << Sheep1->name << '\n'
              << "Species: Sheep"
@@ -596,11 +593,11 @@ void Animal::viewAnimals()
 
     if (Sheep2->name == "")
     {
-        cout << "Cage 10: (empty)"
+        cout << "Cage 12: (empty)"
              << "\n\n";
     }
     else
-        cout << "Cage 10:" << '\n'
+        cout << "Cage 12:" << '\n'
              << "-------" << '\n'
              << "Name: " << Sheep2->name << '\n'
              << "Species: Sheep"
