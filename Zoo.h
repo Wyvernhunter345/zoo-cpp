@@ -6,10 +6,21 @@ using namespace std;
 
 class Zoo
 {
-public:
-    Zoo(); // Default Constructor
+private:
+    int index = 0;
 
-    ~Zoo(); // Default Destructor
+public:
+    Zoo();                   // Default Constructor
+    virtual void feed() = 0; // Feed the animal with a text output, turning false into true
+
+    void feedSilently(int index); // Feed the animal without returning any text. Used for setup purposes
+    void unfeed();                // Sets 'fed' to false
+
+    void addAnimal();    // Add an animal to the zoo
+    void removeAnimal(); // Remove an animal from the zoo
+
+    void viewAnimals(); // View all animals currently in the zoo
+    ~Zoo();             // Default Destructor
 };
 
 #endif // _ZOO_H

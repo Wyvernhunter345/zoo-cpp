@@ -2,15 +2,19 @@
 #define _SHEEP_H
 #include "Animal.h"
 #include <string>
-
-using namespace std;
+#include <iostream>
 
 class Sheep : public virtual Animal
 {
 public:
-    Sheep();                 // Instantiate Sheep with no name and ID 0
-    Sheep(string n);         // ID Defaults to 0
-    Sheep(string n, int id); // Instantiate sheep with given name and ID
+    Sheep();                      // Instantiate Sheep with no name and ID 0
+    Sheep(std::string n);         // ID Defaults to 0
+    Sheep(std::string n, int id); // Instantiate sheep with given name and ID
+
+    void feed()
+    {
+        std::cout << "You feed the Sheep some bundles of hay" << '\n';
+    };
 
     ~Sheep(); // Default Destructor
 };

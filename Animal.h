@@ -30,15 +30,8 @@ public:
     void setFood(string f); // Changes the animal's preferred food
 
     bool isFed(); // Returns true or false depending on whether the animal is fed
-    // virtual void feed();
-    //   Feed the animal with a text output, turning false into true
-    void feedSilently(); // Feed the animal without returning any text. Used for setup purposes
-    void unfeed();       // Sets 'fed' to false
-
-    void addAnimal();    // Add an animal to the zoo
-    void removeAnimal(); // Remove an animal from the zoo
-
-    void viewAnimals(); // View all animals currently in the zoo
+    void feedSilently();
+    void unfeed();
 
     ~Animal(); // Default destructor
 };
