@@ -22,9 +22,15 @@ Lion::Lion(string n, int id)
     cage = id;
 }
 
-void Lion::feed(){
+void Lion::feed()
+{
     cout << "You feed " << name << " the Lion some meat. They almost swallow it whole!" << '\n';
     fed = true;
+}
+
+string Lion::getSpecies()
+{
+    return "Lion";
 }
 
 Lion::~Lion() // Default Destructor

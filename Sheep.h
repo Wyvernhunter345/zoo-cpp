@@ -12,6 +12,7 @@ public:
     Sheep(std::string n, int id); // Instantiate sheep with given name and ID
 
     void feed();
+    string getSpecies();
 
     ~Sheep(); // Default Destructor
 };

@@ -28,6 +28,11 @@ void Horse::feed()
     fed = true;
 };
 
+string Horse::getSpecies()
+{
+    return "Horse";
+}
+
 Horse::~Horse() // Default Destructor
 {
 }

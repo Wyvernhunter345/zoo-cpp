@@ -28,6 +28,11 @@ void Sheep::feed()
     fed = true;
 };
 
+string Sheep::getSpecies()
+{
+    return "Sheep";
+}
+
 Sheep::~Sheep() // Default Destructor
 {
     // DESTROY THE SHEEP HAHAHAHA

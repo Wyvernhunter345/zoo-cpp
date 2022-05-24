@@ -13,6 +13,7 @@ public:
     Tiger(string n, int id); // Instantiate tiger with given name and ID
 
     void feed();
+    string getSpecies();
 
     ~Tiger(); // Default Destructor
 };

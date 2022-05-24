@@ -16,15 +16,17 @@ Zoo::Zoo() : index(0) {}
 
 void Zoo::addAnimal()
 {
+    // Only execute the following code if the zoo is not full
     if ((animals.size)() < 12)
     {
+        // Get the name of the animal
         cout << "ADD AN ANIMAL"
              << "\n\n";
         cout << "Enter the animal's name: ";
         string name;
         cin >> name;
 
-        // has animal been fed?
+        // Get fed status
         cout << "\nHas the animal been fed today? \n";
         cout << "(Y: Yes, N/(other): No): ";
         bool fedToday;
@@ -44,7 +46,7 @@ void Zoo::addAnimal()
             fedToday = 1;
         }
 
-        // get type of animal
+        // Get type of animal
         string resp;
         int respInt;
         cout << '\n'
@@ -56,16 +58,16 @@ void Zoo::addAnimal()
              << "Number: ";
         cin >> resp;
 
+        // Try and convert response to an int. If it fails, abort the command
         try
         {
-            respInt = stoi(resp);
+            respInt = stoi(resp); // stoi(): String to Int
         }
-        catch (const std::exception &e)
+        catch (const invalid_argument e) // std::invalid_argument
         {
             cout << "Input not a number! Aborting..." << '\n';
             return;
         }
-
         cout << '\n';
         if (respInt > 5 or respInt < 0)
         {
@@ -73,7 +75,7 @@ void Zoo::addAnimal()
             return;
         }
 
-        string index = to_string(Zoo::index);
+        // Create a different animal object depending on the response the user gives
         switch (respInt)
         {
         case 0:
@@ -96,20 +98,63 @@ void Zoo::addAnimal()
             break;
         }
     }
+    else
+    {
+        cout << "The zoo is full, you can't add any more animals!"
+             << "\n"
+             << "Try removing an animal first."
+             << "\n\n";
+    }
 }
 
 void Zoo::removeAnimal()
 {
-    // get type of animal to remove
-    int resp;
+    // Get the ID of the animal to remove
+    string resp;
+    int respInt;
     cout << "REMOVE AN ANIMAL"
          << "\n\n"
-         << "What is the ID of the animal you want removed?"
+         << "What is the Cage ID of the animal you want removed?"
          << "\n"
-         << "ID: ";
+         << "Cage: ";
     cin >> resp;
 
-    int cageNumber = 0; // Used to identify the cage number of the animal
+    // Try and convert response to an int. If it fails, abort the command
+    try
+    {
+        respInt = stoi(resp);
+    }
+    catch (const invalid_argument e) // std::invalid_argument
+    {
+
+        cout << "\n\nResponse is not a number! Aborting...\n\n";
+        return;
+    }
+
+    // Check if there is an animal in that cage
+    if (respInt < (animals.size)())
+    {
+        cout << "Animal does not exist! Aborting... \n\n";
+        return;
+    }
+
+    // If all checks have passed, begin the removal procedure
+    string removal;
+    cout << "\n\n";
+    cout << "ANIMAL SELECTED FOR REMOVAL" << '\n'
+         << "---------------------------"
+         << "Name: " << animals[respInt]->getName() << '\n'
+         << "Species: " << animals[respInt]->getSpecies() << '\n'
+         << "Cage ID: " << respInt << "\n\n"
+         << "Are you sure you want to remove this animal? (Y/N): ";
+    cin >> removal;
+
+    if (removal == "Y" || removal == "y")
+    {
+        delete animals[respInt];
+        animals.erase(animals.begin() + respInt);
+        animals.shrink_to_fit();
+    }
 }
 
 Zoo::~Zoo() {}

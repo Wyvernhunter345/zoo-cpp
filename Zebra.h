@@ -13,6 +13,7 @@ public:
     Zebra(string n, int id); // Instantiate zebra with given name and ID
 
     void feed();
+    string getSpecies();
 
     ~Zebra(); // Default Destructor
 };

@@ -29,6 +29,11 @@ void Zebra::feed()
     fed = true;
 }
 
+string Zebra::getSpecies()
+{
+    return "Zebra";
+}
+
 Zebra::~Zebra() // Default Destructor
 {
 }

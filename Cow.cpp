@@ -28,6 +28,11 @@ void Cow::feed()
     fed = true;
 };
 
+string Cow::getSpecies()
+{
+    return "Cow";
+}
+
 Cow::~Cow() // Default Destructor
 {
 }

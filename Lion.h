@@ -13,7 +13,8 @@ public:
     Lion(string n, int id); // Instantiate Lion with given name and ID
 
     void feed();
-    
+    string getSpecies();
+
     ~Lion(); // Default Constructor
 };
 
