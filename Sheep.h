@@ -7,7 +7,7 @@
 class Sheep : public virtual Animal
 {
 public:
-    Sheep();                   // Instantiate Sheep with no name and ID 0
+    Sheep();                   // Instantiate Sheep with no name
     Sheep(string n);           // Instantiate Sheep with given name
     Sheep(string n, bool isf); // Instantiate Sheep with given name and fed status
 

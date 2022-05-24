@@ -154,25 +154,24 @@ void Zoo::removeAnimal()
     string removal;
     cout << "\n\n";
     cout << "ANIMAL SELECTED FOR REMOVAL" << '\n'
-         << "---------------------------"
-         << "Name: " << animals[respInt]->getName() << '\n'
-         << "Species: " << animals[respInt]->getSpecies() << '\n'
+         << "---------------------------" << '\n'
+         << "Name: " << animals[respInt - 1]->getName() << '\n'
+         << "Species: " << animals[respInt - 1]->getSpecies() << '\n'
          << "Cage ID: " << respInt << "\n\n"
          << "Are you sure you want to remove this animal? (Y/N): ";
     cin >> removal;
 
     if (removal == "Y" || removal == "y")
     {
-        delete animals[respInt];
-        animals.erase(animals.begin() + respInt);
+        animals.erase(animals.begin() + respInt - 1);
         animals.shrink_to_fit();
-        cout << "\n\n"
+        cout << "\n"
              << "Animal removed from zoo. Bye-bye!"
              << "\n\n";
     }
     else if (removal == "N" || removal == "n")
     {
-        cout << "\n\n"
+        cout << "\n"
              << "Operation Cancelled."
              << "\n\n";
     }
@@ -191,13 +190,15 @@ void Zoo::viewAnimals()
         for (int i = 0; i < animals.size(); i++)
         {
             if (animals[i]->isFed() == false)
-                cout << "Cage " << i << "\n"
+                cout << "Cage " << i + 1 << "\n"
                      << "------"
+                     << "\n"
                      << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies() << "\nHunger: Hungry\n\n";
             else
                 cout << "Cage " << i + 1 << "\n"
                      << "------"
-                     << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies() << "\nHunger: Hungry\n\n";
+                     << "\n"
+                     << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies() << "\nHunger: Full\n\n";
         }
     }
     else
@@ -205,4 +206,24 @@ void Zoo::viewAnimals()
              << "\n\n";
 }
 
-Zoo::~Zoo() {}
+void Zoo::viewHungry()
+{
+    for (int i = 0; i < animals.size(); i++)
+    {
+        if (animals[i]->isFed() == 0)
+        {
+            cout << "Cage " << i + 1 << "\n"
+                 << "------"
+                 << "\n"
+                 << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies();
+        }
+    }
+}
+void feedAnimal(int cageID)
+{
+    animals[cageID]->feed(); // Call feed function from within the array
+}
+
+Zoo::~Zoo()
+{
+}

@@ -12,7 +12,7 @@ private:
 public:
     Zoo(); // Default Constructor
 
-    void feed();
+    void feedAnimal();            // Calls the respective animals' feed function
     void feedSilently(int index); // Feed the animal without returning any text. Used for setup purposes
     void unfeed();                // Sets 'fed' to false
 
@@ -20,6 +20,7 @@ public:
     void removeAnimal(); // Remove an animal from the zoo
 
     void viewAnimals(); // View all animals currently in the zoo
+    void viewHungry();  // View all animals that are currently hungry
     ~Zoo();             // Default Destructor
 };
 

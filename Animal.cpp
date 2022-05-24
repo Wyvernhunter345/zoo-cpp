@@ -1,43 +1,17 @@
 #include "Animal.h"
-#include "Cow.h"
-#include "Horse.h"
-#include "Sheep.h"
-#include "Tiger.h"
-#include "Zebra.h"
-#include "Zoo.h"
-#include "Lion.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-extern bool used_cage[10];
-extern int in_zoo[12];
-
-extern Lion *Lion1;
-extern Lion *Lion2;
-extern Tiger *Tiger1;
-extern Tiger *Tiger2;
-extern Zebra *Zebra1;
-extern Zebra *Zebra2;
-extern Horse *Horse1;
-extern Horse *Horse2;
-extern Cow *Cow1;
-extern Cow *Cow2;
-extern Sheep *Sheep1;
-extern Sheep *Sheep2;
-
 /*
  * Implementation of Animal.h
  */
 
-Animal::Animal() : name(""), food(""), cage(0), fed(false) {} // Default constructor
-
-Animal::Animal(string n, string f, bool isf, int id) : name(n), food(f), cage(id), fed(isf) {}
+Animal::Animal() : name(""), fed(false) {} // Default constructor
 
 void Animal::setCage(int c)
 {
-    cage = c;
 }
 string Animal::getName()
 {
@@ -51,12 +25,11 @@ void Animal::setName(string n)
 
 string Animal::getFood()
 {
-    return food;
+    return "";
 }
 
 void Animal::setFood(string f)
 {
-    food = f;
 }
 
 bool Animal::isFed()
