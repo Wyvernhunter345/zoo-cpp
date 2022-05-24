@@ -8,9 +8,9 @@ using namespace std;
 class Zebra : virtual public Animal
 {
 public:
-    Zebra();                 // Default Constructor
-    Zebra(string n);         // ID Defaults to 0
-    Zebra(string n, int id); // Instantiate zebra with given name and ID
+    Zebra();                   // Default Constructor
+    Zebra(string n);           // Construct Zebra with name n
+    Zebra(string n, bool isf); // Instantiate zebra with given name and fed status
 
     void feed();
     string getSpecies();

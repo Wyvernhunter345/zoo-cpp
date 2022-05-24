@@ -7,19 +7,19 @@ using namespace std;
 Zebra::Zebra()
 {
     name = "";
-    cage = 0;
+    fed = true;
 }
 
 Zebra::Zebra(string n)
 {
     name = n;
-    cage = 0;
+    fed = true;
 }
 
-Zebra::Zebra(string n, int id)
+Zebra::Zebra(string n, bool isf)
 {
     name = n;
-    cage = id;
+    fed = isf;
 }
 
 void Zebra::feed()

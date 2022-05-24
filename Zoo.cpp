@@ -12,7 +12,7 @@ using namespace std;
 
 extern vector<Animal *> animals;
 
-Zoo::Zoo() : index(0) {}
+Zoo::Zoo() {}
 
 void Zoo::addAnimal()
 {
@@ -20,18 +20,23 @@ void Zoo::addAnimal()
     if ((animals.size)() < 12)
     {
         // Get the name of the animal
-        cout << "ADD AN ANIMAL"
+        cout << "-------------" << '\n'
+             << "ADD AN ANIMAL" << '\n'
+             << "-------------"
              << "\n\n";
-        cout << "Enter the animal's name: ";
+
         string name;
+        cout << "Enter the animal's name: ";
         cin >> name;
 
         // Get fed status
-        cout << "\nHas the animal been fed today? \n";
-        cout << "(Y/N): ";
         bool fedToday;
         string entered;
+
+        cout << "\nHas the animal been fed today? \n";
+        cout << "(Y/N): ";
         cin >> entered;
+
         if (entered == "Y" || entered == "y")
         {
             fedToday = 1;
@@ -42,7 +47,7 @@ void Zoo::addAnimal()
         }
         else
         {
-            cout << "Invalid option entered, defaulting to No..." << '\n';
+            cout << "\nInvalid option entered, defaulting to No..." << '\n';
             fedToday = 1;
         }
 
@@ -57,6 +62,7 @@ void Zoo::addAnimal()
              << "==================================" << '\n'
              << "Number: ";
         cin >> resp;
+        cout << '\n';
 
         // Try and convert response to an int. If it fails, abort the command
         try
@@ -65,17 +71,26 @@ void Zoo::addAnimal()
         }
         catch (const invalid_argument e) // std::invalid_argument
         {
-            cout << "Input not a number! Aborting..." << '\n';
+            cout << "Input not a number! Aborting..."
+                 << "\n\n";
             return;
         }
-        cout << '\n';
         if (respInt > 5 or respInt < 0)
         {
-            cout << "Not a valid animal! Aborting...";
+            cout << "Not a valid animal number! Aborting..."
+                 << "\n\n";
             return;
         }
 
-        // Create a different animal object depending on the response the user gives
+        /* Create a different animal object depending on the response the user gives.
+
+           What these push_back functions do is they instantiate a nameless object
+           to the end of the vector with the given name and fed status. Hence, there
+           is no need to assign an individual name to each object, as:
+           a) It's not possible, and
+           b) You can still directly access the object and its function through
+           the vector. */
+
         switch (respInt)
         {
         case 0:
@@ -124,13 +139,15 @@ void Zoo::removeAnimal()
     // Get the ID of the animal to remove
     string resp;
     int respInt;
-    cout << "REMOVE AN ANIMAL"
+    cout << "----------------" << '\n'
+         << "REMOVE AN ANIMAL" << '\n'
+         << "----------------"
          << "\n\n"
          << "What is the Cage ID of the animal you want removed?"
          << "\n"
          << "Cage: ";
     cin >> resp;
-
+    cout << "\n";
     // Try and convert response to an int. If it fails, abort the command
     try
     {
@@ -139,12 +156,12 @@ void Zoo::removeAnimal()
     catch (const invalid_argument e) // std::invalid_argument
     {
 
-        cout << "\n\nResponse is not a number! Aborting...\n\n";
+        cout << "Response is not a number! Aborting...\n\n";
         return;
     }
 
     // Check if there is an animal in that cage
-    if (respInt > (animals.size)())
+    if (respInt > (animals.size)() || respInt < 1)
     {
         cout << "Animal does not exist! Aborting... \n\n";
         return;
@@ -152,7 +169,7 @@ void Zoo::removeAnimal()
 
     // If all checks have passed, begin the removal procedure
     string removal;
-    cout << "\n\n";
+
     cout << "ANIMAL SELECTED FOR REMOVAL" << '\n'
          << "---------------------------" << '\n'
          << "Name: " << animals[respInt - 1]->getName() << '\n'
@@ -163,8 +180,8 @@ void Zoo::removeAnimal()
 
     if (removal == "Y" || removal == "y")
     {
-        animals.erase(animals.begin() + respInt - 1);
-        animals.shrink_to_fit();
+        animals.erase(animals.begin() + respInt - 1); // Delete the animal object at the chosen index
+        animals.shrink_to_fit();                      // Free memory by compacting the array to only the size it needs
         cout << "\n"
              << "Animal removed from zoo. Bye-bye!"
              << "\n\n";
@@ -177,7 +194,7 @@ void Zoo::removeAnimal()
     }
     else
     {
-        cout << "\n\n"
+        cout << "\n"
              << "Invalid response! Aborting... "
              << "\n\n";
     }
@@ -200,6 +217,8 @@ void Zoo::viewAnimals()
                      << "\n"
                      << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies() << "\nHunger: Full\n\n";
         }
+        cout << "\nCapacity: (" << animals.size() << "/12)"
+             << "\n\n";
     }
     else
         cout << "There are no animals in the zoo! (Yet...)"
@@ -215,13 +234,43 @@ void Zoo::viewHungry()
             cout << "Cage " << i + 1 << "\n"
                  << "------"
                  << "\n"
-                 << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies();
+                 << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies() << "\n\n";
         }
     }
 }
-void feedAnimal(int cageID)
+void Zoo::feedAnimal()
 {
-    animals[cageID]->feed(); // Call feed function from within the array
+    string resp;
+    int respInt;
+    cout << "--------------" << '\n'
+         << "FEED AN ANIMAL" << '\n'
+         << "--------------"
+         << "\n\n"
+         << "Enter the Cage ID of the animal you wish to feed: ";
+
+    cin >> resp;
+
+    // Try and convert response to an int. If it fails, abort the command
+    try
+    {
+        respInt = stoi(resp);
+    }
+    catch (const invalid_argument e) // std::invalid_argument
+    {
+
+        cout << "\n\nResponse is not a number! Aborting...\n\n";
+        return;
+    }
+
+    // Check if there is an animal in that cage
+    if (respInt > (animals.size)() || respInt < 1)
+    {
+        cout << "\n\nAnimal does not exist! Aborting... \n\n";
+        return;
+    }
+    cout << "\n\n";
+    animals[respInt - 1]->feed(); // Call feed function from within the array
+    cout << "\n\n";
 }
 
 Zoo::~Zoo()

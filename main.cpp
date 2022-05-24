@@ -11,15 +11,15 @@
 #include "Lion.h"
 using namespace std;
 
-vector<Animal *> animals;
+vector<Animal *> animals; // A vector of Animal pointers to store all inherited animal objects
 
 int main()
 {
   bool isRunning = true; /* Determines whether the program is currently running.
                           * If false, the program will terminate. */
-  int days = 0;          // Days passed in the virtual zoo
+  int days = 1;          // Current day in the virtual zoo
 
-  Zoo animalManager;
+  Zoo animalManager; // Standard Zoo object to manage the zoo
 
   cout
       << "=================================" << '\n'
@@ -45,7 +45,7 @@ int main()
     {
       cout << "COMMAND LIST" << '\n'
            << "------------" << '\n'
-           << "A: Add Animal\nR: Remove Animal\nF: Feed Animal\nV: View Animals\nVH: View Hungry Animals\nC: Quit the application\n(Enter): Skip to next day\n\n";
+           << "A: Add Animal\nR: Remove Animal\nF: Feed Animal\nV: View Animals\nVH: View Hungry Animals\nC: Quit the application\nS: Skip to next day\n\n";
     }
     else if (action == "C" || action == "c")
     {
@@ -63,6 +63,27 @@ int main()
     else if (action == "V" || action == "v")
     {
       animalManager.viewAnimals();
+    }
+    else if (action == "VH" || action == "Vh" || action == "vH" || action == "vh")
+    {
+      animalManager.viewHungry();
+    }
+    else if (action == "F" || action == "f")
+    {
+      animalManager.feedAnimal();
+    }
+    else if (action == "S" || action == "s")
+    {
+      cout << "\nYou decide to rest until the next day...\n\n";
+      days++;
+      for (int i = 0; i < animals.size(); i++)
+      {
+        animals[i]->unfeed(); // Unfeed any animal currently in the zoo
+      }
+
+      cout << "=====" << '\n'
+           << "Day " << days << '\n'
+           << "=====" << '\n';
     }
     else
     {

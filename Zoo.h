@@ -6,9 +6,6 @@ using namespace std;
 
 class Zoo
 {
-private:
-    int index;
-
 public:
     Zoo(); // Default Constructor
 
