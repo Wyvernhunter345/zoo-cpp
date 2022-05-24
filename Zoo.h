@@ -7,9 +7,10 @@ using namespace std;
 class Zoo
 {
 private:
-    int index = 0;
+    int index;
+
 public:
-    Zoo();                   // Default Constructor
+    Zoo(); // Default Constructor
 
     void feed();
     void feedSilently(int index); // Feed the animal without returning any text. Used for setup purposes

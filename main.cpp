@@ -11,6 +11,8 @@
 #include "Lion.h"
 using namespace std;
 
+vector<Animal *> animals;
+
 int main()
 {
   bool used_cage[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};   // 1 indicates cage full, 0 indicates empty
@@ -22,9 +24,6 @@ int main()
   int days = 0;          // Days passed in the virtual zoo
 
   Zoo animalManager;
-  vector<Animal *> animals;
-  animals[0] = new Sheep();
-
 
   cout
       << "=================================" << '\n'
@@ -65,10 +64,10 @@ int main()
     {
       animalManager.removeAnimal();
     }
-    else if (action == "V" || action == "v")
+    /* else if (action == "V" || action == "v")
     {
       animalManager.viewAnimals();
-    }
+    } */
     else
     {
       cout << "Not a valid command!"
