@@ -22,6 +22,12 @@ Horse::Horse(string n, int id)
     cage = id;
 }
 
+void Horse::feed()
+{
+    std::cout << "You feed " << name << " the Horse some bundles of hay and grass. They eat it up quickly, though you now have spit on you..." << '\n';
+    fed = true;
+};
+
 Horse::~Horse() // Default Destructor
 {
 }

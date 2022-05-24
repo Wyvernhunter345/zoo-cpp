@@ -22,6 +22,12 @@ Sheep::Sheep(string n, int id)
     cage = id;
 }
 
+void Sheep::feed()
+{
+    std::cout << "You feed " << name << " the Sheep some bundles of hay and grass. They munch on it happily!" << '\n';
+    fed = true;
+};
+
 Sheep::~Sheep() // Default Destructor
 {
     // DESTROY THE SHEEP HAHAHAHA

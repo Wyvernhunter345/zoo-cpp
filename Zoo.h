@@ -8,11 +8,10 @@ class Zoo
 {
 private:
     int index = 0;
-
 public:
     Zoo();                   // Default Constructor
-    virtual void feed() = 0; // Feed the animal with a text output, turning false into true
 
+    void feed();
     void feedSilently(int index); // Feed the animal without returning any text. Used for setup purposes
     void unfeed();                // Sets 'fed' to false
 

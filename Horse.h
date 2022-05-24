@@ -12,6 +12,8 @@ public:
     Horse(string n);         // ID Defaults to 0
     Horse(string n, int id); // Instantiate horse with given name and ID
 
+    void feed();
+
     ~Horse(); // Default Destructor
 };
 

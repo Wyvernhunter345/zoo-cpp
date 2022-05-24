@@ -30,6 +30,7 @@ public:
     void setFood(string f); // Changes the animal's preferred food
 
     bool isFed(); // Returns true or false depending on whether the animal is fed
+    virtual void feed() = 0; // Feed the animal with a text output, turning false into true
     void feedSilently();
     void unfeed();
 

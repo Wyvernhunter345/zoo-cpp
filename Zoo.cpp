@@ -1,244 +1,16 @@
 #include "Zoo.h"
 #include "Lion.h"
+#include "Zebra.h"
+#include "Tiger.h"
+#include "Sheep.h"
+#include "Horse.h"
+#include "Cow.h"
 #include "Animal.h"
 #include <iostream>
 #include <vector>
 using namespace std;
 
 extern vector<Animal *> animals;
-
-/*
-void Zoo::addAnimal()
-{
-    // Find the position
-    int cage_number = 11;
-    for (int i = 0; i < 9; i++)
-    {
-        if (used_cage[i] == 0)
-        {
-            cage_number = i + 1;
-            break;
-        }
-    }
-
-    // if all enclosures full
-    if (cage_number > 10 or cage_number < 1)
-    {
-        cout << "There are no empty enclosures to add an animal to" << '\n';
-        // program returns something to quit
-    }
-
-    // get animal's name
-    cout << "ADD AN ANIMAL"
-         << "\n\n";
-    cout << "Enter the animal's name: ";
-    string name;
-    cin >> name;
-
-    // has animal been fed?
-    cout << "\nHas the animal been fed today? \n";
-    cout << "(Y: Yes, Other: No): ";
-    bool fedToday;
-    string entered;
-    cin >> entered;
-    if (entered == "Y")
-    {
-        fedToday = 1;
-    }
-    else if (entered == "N")
-    {
-        fedToday = 0;
-    }
-    else
-    {
-        cout << "Invalid option entered, defaulting to Yes..." << '\n';
-        fedToday = 1;
-    }
-
-    // get type of animal
-    int resp;
-    cout << '\n'
-         << "What type of animal is it?" << '\n'
-         << "==================================" << '\n'
-         << "||0 = Lion, 1 = Tiger, 2 = Zebra||" << '\n'
-         << "||3 = Horse, 4 = Cow, 5 = Sheep ||" << '\n'
-         << "==================================" << '\n'
-         << "Number: ";
-    cin >> resp;
-    cout << '\n';
-    if (resp > 5 or resp < 0)
-    {
-        cout << "That is not a valid animal";
-        // program return something to quit
-    }
-
-     passes bug test at this point
-
-// add animal to zoo
-switch (resp)
-{
-
-case 0:
-    if (in_zoo[0] == 0)
-    {
-        Lion1->setCage(1);
-        Lion1->setName(name);
-        if (fedToday)
-            Lion1->feedSilently();
-        else
-            Lion1->fed = false;
-        cout << "Lion successfully added with cage number " << 1 << "!" << '\n';
-        in_zoo[0] = 1;
-    }
-
-    else if (in_zoo[1] == 0)
-    {
-        Lion2->setCage(2);
-        Lion2->setName(name);
-        if (fedToday)
-            Lion2->feedSilently();
-        else
-            Lion2->fed = false;
-        cout << "Lion successfully added with cage number " << 2 << "!" << '\n';
-        in_zoo[1] = 1;
-    }
-
-    else
-    {
-        cout << "Sorry, the zoo already has the maximum number of lions";
-    }
-    break;
-case 1:
-    if (in_zoo[2] == 0)
-    {
-        Tiger1->setCage(3);
-        Tiger1->setName(name);
-        if (fedToday)
-            Tiger1->feedSilently();
-        else
-            Tiger1->fed = false;
-        cout << "Tiger successfully added with cage number " << 3 << "!" << '\n';
-        in_zoo[2] = 1;
-    }
-
-    else if (in_zoo[3] == 0)
-    {
-        Tiger2->setCage(4);
-        Tiger2->setName(name);
-        if (fedToday)
-            Tiger2->feedSilently();
-        else
-            Tiger2->fed = false;
-        cout << "Tiger successfully added with cage number " << 4 << "!" << '\n';
-        in_zoo[3] = 1;
-    }
-
-    else
-    {
-        cout << "Sorry, the zoo already has the maximum number of tigers";
-    }
-    break;
-
-case 2:
-    if (in_zoo[4] == 0)
-    {
-        Zebra1->setCage(5);
-        Zebra1->setName(name);
-        if (fedToday)
-            Zebra1->feedSilently();
-        else
-            Zebra1->fed = false;
-        cout << "Zebra successfully added with cage number " << 5 << "!" << '\n';
-        in_zoo[4] = 1;
-    }
-
-    else if (in_zoo[5] == 0)
-    {
-        Zebra2->setCage(6);
-        Zebra2->setName(name);
-        if (fedToday)
-            Zebra2->feedSilently();
-        else
-            Zebra2->fed = false;
-        cout << "Zebra successfully added with cage number " << 6 << "!" << '\n';
-        in_zoo[5] = 1;
-    }
-
-    else
-    {
-        cout << "Sorry, the zoo already has the maximum number of zebras";
-    }
-    break;
-
-case 3:
-    if (in_zoo[6] == 0)
-    {
-        Horse1->setCage(7);
-        Horse1->setName(name);
-        if (fedToday)
-            Horse1->feedSilently();
-        else
-            Horse1->fed = false;
-        cout << "Horse successfully added with cage number " << 7 << "!" << '\n';
-        in_zoo[6] = 1;
-    }
-
-    else if (in_zoo[7] == 0)
-    {
-        Horse2->setCage(8);
-        Horse2->setName(name);
-        if (fedToday)
-            Horse2->feedSilently();
-        else
-            Horse2->fed = false;
-        cout << "Horse successfully added with cage number " << 8 << "!" << '\n';
-        in_zoo[7] = 1;
-    }
-
-    else
-    {
-        cout << "Sorry, the zoo already has the maximum number of horses";
-    }
-    break;
-
-case 4:
-    if (in_zoo[8] == 0)
-    {
-        Cow1->setCage(9);
-        Cow1->setName(name);
-        if (fedToday)
-            Cow1->feedSilently();
-        else
-            Cow1->fed = false;
-        cout << "Cow successfully added with cage number " << 9 << "!" << '\n';
-        in_zoo[8] = 1;
-    }
-
-    else if (in_zoo[9] == 0)
-    {
-        Cow2->setCage(10);
-        Cow2->setName(name);
-        if (fedToday)
-            Cow2->feedSilently();
-        else
-            Cow2->fed = false;
-        cout << "Cow successfully added with cage number " << 10 << "!" << '\n';
-        in_zoo[9] = 1;
-    }
-
-    else
-    {
-        cout << "Sorry, the zoo already has the maximum number of cows";
-    }
-    break;
-
-default:
-    cout << "Not a valid animal! Aborting...\n\n"
-         << '\n';
-    break;
-}
-}
-*/
 
 void Zoo::addAnimal()
 {
@@ -300,40 +72,25 @@ void Zoo::addAnimal()
         }
 
         string index = to_string(Zoo::index);
-        string animal;
         switch (respInt)
         {
         case 0:
-            switch (Zoo::index)
-            {
-            case 0:
-                Lion *Lion1 = new Lion(name, Zoo::index);
-                animals.push_back(Lion1);
-                break;
-            case 1:
-                Lion *Lion2 = new Lion(name, Zoo::index);
-                animals.push_back(Lion2);
-                break;
-            case 2:
-                Lion *Lion3 = new Lion(name, Zoo::index);
-                animals.push_back(Lion3);
-                break;
-            }
+            animals.push_back(new Lion(name, respInt));
             break;
         case 1:
-            animal = "Tiger";
+            animals.push_back(new Tiger(name, respInt));
             break;
         case 2:
-            animal = "Zebra";
+            animals.push_back(new Zebra(name, respInt));
             break;
         case 3:
-            animal = "Horse";
+            animals.push_back(new Horse(name, respInt));
             break;
         case 4:
-            animal = "Cow";
+            animals.push_back(new Cow(name, respInt));
             break;
         case 5:
-            animal = "Sheep";
+            animals.push_back(new Sheep(name, respInt));
             break;
         }
     }

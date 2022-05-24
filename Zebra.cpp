@@ -22,6 +22,13 @@ Zebra::Zebra(string n, int id)
     cage = id;
 }
 
+void Zebra::feed()
+{
+    cout << "You feed " << name << " the Zebra some grass. They seem to like it!"
+         << "\n";
+    fed = true;
+}
+
 Zebra::~Zebra() // Default Destructor
 {
 }

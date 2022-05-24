@@ -11,10 +11,7 @@ public:
     Sheep(std::string n);         // ID Defaults to 0
     Sheep(std::string n, int id); // Instantiate sheep with given name and ID
 
-    void feed()
-    {
-        std::cout << "You feed the Sheep some bundles of hay" << '\n';
-    };
+    void feed();
 
     ~Sheep(); // Default Destructor
 };

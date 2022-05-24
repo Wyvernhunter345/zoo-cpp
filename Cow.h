@@ -12,6 +12,8 @@ public:
     Cow(string n);         // ID Defaults to 0
     Cow(string n, int id); // Instantiate cow with given name and ID
 
+    void feed();
+
     ~Cow(); // Default Destructor
 };
 

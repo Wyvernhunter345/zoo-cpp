@@ -22,6 +22,11 @@ Lion::Lion(string n, int id)
     cage = id;
 }
 
+void Lion::feed(){
+    cout << "You feed " << name << " the Lion some meat. They almost swallow it whole!" << '\n';
+    fed = true;
+}
+
 Lion::~Lion() // Default Destructor
 {
 }

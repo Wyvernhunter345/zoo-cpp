@@ -22,6 +22,11 @@ Tiger::Tiger(string n, int id)
     cage = id;
 }
 
+void Tiger::feed(){
+    cout << "You feed " << name << " the Tiger a chunk of meat. They seem very happy!" << '\n';
+    fed = true;
+}
+
 Tiger::~Tiger() // Default Destructor
 {
 }

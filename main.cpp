@@ -21,8 +21,10 @@ int main()
                           * If false, the program will terminate. */
   int days = 0;          // Days passed in the virtual zoo
 
+  Zoo animalManager;
   vector<Animal *> animals;
   animals[0] = new Sheep();
+
 
   cout
       << "=================================" << '\n'
