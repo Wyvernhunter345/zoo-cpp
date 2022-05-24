@@ -7,19 +7,19 @@ using namespace std;
 Horse::Horse()
 {
     name = "";
-    cage = 0;
+    fed = true;
 }
 
 Horse::Horse(string n)
 {
     name = n;
-    cage = 0;
+    fed = true;
 }
 
-Horse::Horse(string n, int id)
+Horse::Horse(string n, bool isf)
 {
     name = n;
-    cage = id;
+    fed = isf;
 }
 
 void Horse::feed()

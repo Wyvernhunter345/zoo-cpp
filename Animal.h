@@ -10,15 +10,10 @@ class Animal
 {
 protected:
     string name; // Name of the animal
-    string food; // Preferred food of the animal
     bool fed;    // Determines whether the animal is fed - 1 for yes, 0 for no
-    int cage;    //  Cage ID of the animal
 
 public:
-    Animal();                                     // Default Constructor
-                                                  // Instantiates an animal with no name, no food, not fed, and ID 0
-    Animal(string n, string f, bool isf, int id); /* Constructs an animal with the given name,
-                                                   * food, fed status, and cage ID */
+    Animal(); // Default Constructor
 
     int getCage();       // Returns the cage ID of the animal
     void setCage(int c); // Move/Set the cage of the animal

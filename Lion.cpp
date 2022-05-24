@@ -7,19 +7,19 @@ using namespace std;
 Lion::Lion()
 {
     name = "";
-    cage = 0;
+    fed = true;
 }
 
 Lion::Lion(string n)
 {
     name = n;
-    cage = 0;
+    fed = true;
 }
 
-Lion::Lion(string n, int id)
+Lion::Lion(string n, bool isf)
 {
     name = n;
-    cage = id;
+    fed = isf;
 }
 
 void Lion::feed()

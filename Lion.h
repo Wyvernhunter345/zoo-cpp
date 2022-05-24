@@ -8,9 +8,9 @@ using namespace std;
 class Lion : virtual public Animal
 {
 public:
-    Lion();                 // Default Constructor
-    Lion(string n);         // ID Defaults to 0
-    Lion(string n, int id); // Instantiate Lion with given name and ID
+    Lion();                   // Default Constructor
+    Lion(string n);           // Create Lion with given name
+    Lion(string n, bool isf); // Create Lion with given name and fed status
 
     void feed();
     string getSpecies();

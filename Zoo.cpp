@@ -28,7 +28,7 @@ void Zoo::addAnimal()
 
         // Get fed status
         cout << "\nHas the animal been fed today? \n";
-        cout << "(Y: Yes, N/(other): No): ";
+        cout << "(Y/N): ";
         bool fedToday;
         string entered;
         cin >> entered;
@@ -79,22 +79,34 @@ void Zoo::addAnimal()
         switch (respInt)
         {
         case 0:
-            animals.push_back(new Lion(name, respInt));
+            animals.push_back(new Lion(name, fedToday));
+            cout << "Added a new Lion with name " << name << " and Cage ID " << animals.size() << "."
+                 << "\n\n";
             break;
         case 1:
-            animals.push_back(new Tiger(name, respInt));
+            animals.push_back(new Tiger(name, fedToday));
+            cout << "Added a new Tiger with name " << name << " and Cage ID " << animals.size() << "."
+                 << "\n\n";
             break;
         case 2:
-            animals.push_back(new Zebra(name, respInt));
+            animals.push_back(new Zebra(name, fedToday));
+            cout << "Added a new Zebra with name " << name << " and Cage ID " << animals.size() << "."
+                 << "\n\n";
             break;
         case 3:
-            animals.push_back(new Horse(name, respInt));
+            animals.push_back(new Horse(name, fedToday));
+            cout << "Added a new Horse with name " << name << " and Cage ID " << animals.size() << "."
+                 << "\n\n";
             break;
         case 4:
-            animals.push_back(new Cow(name, respInt));
+            animals.push_back(new Cow(name, fedToday));
+            cout << "Added a new Cow with name " << name << " and Cage ID " << animals.size() << "."
+                 << "\n\n";
             break;
         case 5:
-            animals.push_back(new Sheep(name, respInt));
+            animals.push_back(new Sheep(name, fedToday));
+            cout << "Added a new Sheep with name " << name << " and Cage ID " << animals.size() << "."
+                 << "\n\n";
             break;
         }
     }
@@ -132,7 +144,7 @@ void Zoo::removeAnimal()
     }
 
     // Check if there is an animal in that cage
-    if (respInt < (animals.size)())
+    if (respInt > (animals.size)())
     {
         cout << "Animal does not exist! Aborting... \n\n";
         return;
@@ -154,7 +166,43 @@ void Zoo::removeAnimal()
         delete animals[respInt];
         animals.erase(animals.begin() + respInt);
         animals.shrink_to_fit();
+        cout << "\n\n"
+             << "Animal removed from zoo. Bye-bye!"
+             << "\n\n";
     }
+    else if (removal == "N" || removal == "n")
+    {
+        cout << "\n\n"
+             << "Operation Cancelled."
+             << "\n\n";
+    }
+    else
+    {
+        cout << "\n\n"
+             << "Invalid response! Aborting... "
+             << "\n\n";
+    }
+}
+
+void Zoo::viewAnimals()
+{
+    if (animals.size() > 0)
+    {
+        for (int i = 0; i < animals.size(); i++)
+        {
+            if (animals[i]->isFed() == false)
+                cout << "Cage " << i << "\n"
+                     << "------"
+                     << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies() << "\nHunger: Hungry\n\n";
+            else
+                cout << "Cage " << i + 1 << "\n"
+                     << "------"
+                     << "Name: " << animals[i]->getName() << "\nSpecies: " << animals[i]->getSpecies() << "\nHunger: Hungry\n\n";
+        }
+    }
+    else
+        cout << "There are no animals in the zoo! (Yet...)"
+             << "\n\n";
 }
 
 Zoo::~Zoo() {}

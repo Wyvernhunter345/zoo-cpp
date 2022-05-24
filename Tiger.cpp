@@ -7,19 +7,19 @@ using namespace std;
 Tiger::Tiger()
 {
     name = "";
-    cage = 0;
+    fed = true;
 }
 
 Tiger::Tiger(string n)
 {
     name = n;
-    cage = 0;
+    fed = true;
 }
 
-Tiger::Tiger(string n, int id)
+Tiger::Tiger(string n, bool isf)
 {
     name = n;
-    cage = id;
+    fed = isf;
 }
 
 void Tiger::feed()

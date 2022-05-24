@@ -7,19 +7,19 @@ using namespace std;
 Sheep::Sheep()
 {
     name = "";
-    cage = 0;
+    fed = true;
 }
 
 Sheep::Sheep(string n)
 {
     name = n;
-    cage = 0;
+    fed = true;
 }
 
-Sheep::Sheep(string n, int id)
+Sheep::Sheep(string n, bool isf)
 {
     name = n;
-    cage = id;
+    fed = isf;
 }
 
 void Sheep::feed()

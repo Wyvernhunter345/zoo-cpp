@@ -7,9 +7,9 @@
 class Sheep : public virtual Animal
 {
 public:
-    Sheep();                      // Instantiate Sheep with no name and ID 0
-    Sheep(std::string n);         // ID Defaults to 0
-    Sheep(std::string n, int id); // Instantiate sheep with given name and ID
+    Sheep();                   // Instantiate Sheep with no name and ID 0
+    Sheep(string n);           // Instantiate Sheep with given name
+    Sheep(string n, bool isf); // Instantiate Sheep with given name and fed status
 
     void feed();
     string getSpecies();
