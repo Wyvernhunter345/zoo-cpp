@@ -27,7 +27,7 @@ void Zoo::addAnimal()
 
         string name;
         cout << "Enter the animal's name: ";
-        cin >> name;
+        getline(cin >> ws, name);
 
         // Get fed status
         bool fedToday;
